@@ -10,9 +10,9 @@ export const imageData = createAsyncThunk("image/imageContent", async () => {
 // Image fetch by random user name
 export const imageDataByName = createAsyncThunk(
   "image/imageContent",
-  async (USERNAME) => {
+  async (KEYWORD) => {
     const { data } = await axios.get(
-      `https://source.unsplash.com/user/${USERNAME}/1600x900`
+      `https://source.unsplash.com/featured/?${KEYWORD},${KEYWORD}`
     );
     return data;
   }
