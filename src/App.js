@@ -1,5 +1,11 @@
+import Nasa from "./Components/Nasa/Nasa";
+
 function App() {
-  return <div className='App'></div>;
+  return (
+    <>
+      <Nasa />
+    </>
+  );
 }
 
 export default App;
