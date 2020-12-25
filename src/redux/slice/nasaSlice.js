@@ -24,8 +24,6 @@ const nasaSlice = createSlice({
   },
 });
 
-export const { increment } = nasaSlice.actions;
-
 export default nasaSlice.reducer;
 
 // selector
