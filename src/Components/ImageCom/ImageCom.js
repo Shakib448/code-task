@@ -12,7 +12,11 @@ const ImageCom = () => {
     dispatch(imageData());
   }, [dispatch]);
 
-  return <div></div>;
+  return (
+    <div>
+      <h1>This is image</h1>
+    </div>
+  );
 };
 
 export default ImageCom;

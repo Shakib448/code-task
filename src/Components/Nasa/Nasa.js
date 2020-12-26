@@ -10,7 +10,11 @@ const Nasa = () => {
     dispatch(nasaData());
   }, [dispatch]);
 
-  return <div></div>;
+  return (
+    <div>
+      <h1>This nasa</h1>
+    </div>
+  );
 };
 
 export default Nasa;

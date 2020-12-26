@@ -33,8 +33,7 @@ const GoogleLogin = () => {
           img: photoURL,
         })
       );
-
-      history.replace(from);
+      history.replace("/");
     } catch (err) {
       console.error(err);
     }
