@@ -1,17 +1,18 @@
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import "firebase/auth";
-import "./GoogleLogin.css";
-import logo from "../../images/logos/logo.png";
-import firebaseConfig from "./Firebase.config";
-import { userInformationData } from "../../App";
-import google from "../../images/logos/googleico.png";
+import "./GoogleLogin.sass";
 import { useHistory, useLocation } from "react-router-dom";
+import firebaseConfig from "../../FirebaseConfig/Firebase.config";
+import { useDispatch } from "react-redux";
+import { authLogin } from "../../redux/slice/authSlice";
 
 firebase.initializeApp(firebaseConfig);
 
 const GoogleLogin = () => {
+  const dispatch = useDispatch();
+
   //Location
   let location = useLocation();
   let history = useHistory();
@@ -24,28 +25,23 @@ const GoogleLogin = () => {
     try {
       const res = await firebase.auth().signInWithPopup(providerGoogle);
       const { email, displayName, photoURL } = res.user;
-      const singedInUser = {
-        isSignIn: true,
-        email: email,
-        name: displayName,
-        img: photoURL,
-      };
-      setUserData(singedInUser);
+      dispatch(
+        authLogin({
+          isSignIn: true,
+          email: email,
+          name: displayName,
+          img: photoURL,
+        })
+      );
+
       history.replace(from);
     } catch (err) {
-      console.warn(err);
+      console.error(err);
     }
   };
 
   return (
     <Container className='googleLogin'>
-      <Row>
-        <Col md={4}></Col>
-        <Col md={4} className='text-center'>
-          <img src={logo} width='150' height='50' alt='Logo' />
-        </Col>
-        <Col md={4}></Col>
-      </Row>
       <Row>
         <Col md={3}></Col>
         <Col md={6}>
@@ -63,7 +59,7 @@ const GoogleLogin = () => {
                     className='googleLogin__img'
                     width='50'
                     height='50'
-                    src={google}
+                    src='https://i.ibb.co/mNNmcGf/google.png'
                     alt=''
                   />
                   Continue With Google

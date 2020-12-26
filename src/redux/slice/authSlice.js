@@ -12,6 +12,10 @@ const authSlice = createSlice({
   },
 });
 
-const { authLogin } = authSlice.actions;
+export const { authLogin } = authSlice.actions;
 
 export default authSlice.reducer;
+
+// Selector
+
+export const authSelector = (state) => state.entities.auth;
