@@ -15,12 +15,14 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 const App = () => {
   return (
     <>
+      <Nasa />
+
       <Router>
         <Switch>
           <Route exact path='/' component={Welcome} />
 
           <PrivateRoute exact path='/home'>
-            <Nasa />
+            {/* <Nasa /> */}
           </PrivateRoute>
           <PrivateRoute exact path='/image'>
             <ImageCom />
