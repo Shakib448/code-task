@@ -28,4 +28,4 @@ export default albumSlice.reducer;
 
 // selector
 
-export const dataImage = (state) => state.entities.image;
+export const dataAlbum = (state) => state.entities.album;

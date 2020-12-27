@@ -20,7 +20,7 @@ const Nasa = () => {
   document.title = "Home";
 
   return (
-    <Container fluid>
+    <Container className='my-5' fluid>
       {loading ? (
         <Loader />
       ) : (
