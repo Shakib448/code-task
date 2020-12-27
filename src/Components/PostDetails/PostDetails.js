@@ -2,8 +2,13 @@ import React, { useEffect } from "react";
 import { Container, Row, Card, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { dataPost, postById } from "../../redux/slice/postSlice";
+import {
+  dataPost,
+  postById,
+  postByIdComment,
+} from "../../redux/slice/postSlice";
 import Loader from "../Loader/Loader";
+import PostComment from "../PostComment/PostComment";
 
 const PostDetails = () => {
   const { id } = useParams();
@@ -11,11 +16,13 @@ const PostDetails = () => {
   const dispatch = useDispatch();
   const {
     loading,
+    postByComment,
     postByIdData: { title, body },
   } = useSelector(dataPost);
 
   useEffect(() => {
     dispatch(postById(id));
+    dispatch(postByIdComment(id));
   }, [id, dispatch]);
   return (
     <Container>
@@ -36,6 +43,11 @@ const PostDetails = () => {
           </Button>
         </Row>
       )}
+      <Row>
+        {postByComment.map((comment) => (
+          <PostComment key={comment.id} comment={comment} />
+        ))}
+      </Row>
     </Container>
   );
 };
