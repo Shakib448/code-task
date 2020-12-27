@@ -7,7 +7,7 @@ const Welcome = () => {
   return (
     <Container className='welcome'>
       <Col component='div'>
-        <h1>Welcome Assignment Master</h1>
+        <h1 className='my-3'>Welcome Assignment Master</h1>
         <Button variant='dark' as={Link} to='/google-login'>
           Google Login
         </Button>

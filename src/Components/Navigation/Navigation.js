@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Navigation.sass";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 import { authLogOut } from "../../redux/slice/authSlice";
@@ -13,6 +13,7 @@ const Navigation = () => {
   const dispatch = useDispatch();
 
   const history = useHistory();
+  const location = useLocation();
 
   const handleBackHome = () => {
     history.push("/");
@@ -38,6 +39,21 @@ const Navigation = () => {
     };
     handleScroll();
   }, []);
+
+  const navItems = [
+    {
+      name: "Home ",
+      link: "/home",
+    },
+    {
+      name: "Image",
+      link: "/image",
+    },
+    {
+      name: "Post",
+      link: "/post",
+    },
+  ];
   return (
     <>
       <Navbar
@@ -52,29 +68,20 @@ const Navigation = () => {
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Nav className='ml-auto mr-auto font-weight-bold text-white '>
-              <NavLink
-                to='/home'
-                className='mr-3 mb-3 mt-2 text-dark mainNav__hover'
-                style={{ textDecoration: "none" }}
-              >
-                Home
-              </NavLink>
-
-              <NavLink
-                to='/image'
-                className='mr-3 mb-3 mt-2 text-dark mainNav__hover'
-                style={{ textDecoration: "none" }}
-              >
-                Image
-              </NavLink>
-              <NavLink
-                to='/post'
-                className='mr-3 mb-3 mt-2 text-dark mainNav__hover'
-                style={{ textDecoration: "none" }}
-              >
-                Post
-              </NavLink>
-
+              {navItems.map((item) => (
+                <NavLink
+                  className='mr-3 mb-3 mt-2 text-dark mainNav__hover'
+                  activeClassName={
+                    location.pathname === item.link
+                      ? "mainNav__activeHover"
+                      : null
+                  }
+                  style={{ textDecoration: "none" }}
+                  to={item.link}
+                >
+                  {item.name}
+                </NavLink>
+              ))}
               {email ? (
                 <>
                   {" "}
