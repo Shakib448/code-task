@@ -34,6 +34,7 @@ const postSlice = createSlice({
     loading: true,
     postApiData: [],
     postByIdData: [],
+    postByComment: [],
   },
   extraReducers: {
     [postData.fulfilled]: (state, actions) => {
@@ -45,7 +46,7 @@ const postSlice = createSlice({
       state.loading = false;
     },
     [postByIdComment.fulfilled]: (state, actions) => {
-      state.postByIdData = actions.payload;
+      state.postByComment = actions.payload;
       state.loading = false;
     },
   },
