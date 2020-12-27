@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { clientID } from "../../FirebaseConfig/Firebase.config";
 
 // Image fetch by random user name
 export const imageDataByName = createAsyncThunk(
   "image/imageContentByKeyword",
   async ({ keyword }) => {
-    console.log(keyword);
     const { data } = await axios.get(
-      `https://source.unsplash.com/featured/?${keyword}, ${keyword}`
+      `https://api.unsplash.com/search/photos?page=1&query=${keyword}&client_id=${clientID}`
     );
     return data;
   }

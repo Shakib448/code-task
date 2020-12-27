@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Row,
@@ -6,6 +6,7 @@ import {
   Form,
   Button,
   Image,
+  Col,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { dataImage, imageDataByName } from "../../redux/slice/imageSlice";
@@ -16,9 +17,13 @@ import { useForm } from "react-hook-form";
 
 const ImageCom = () => {
   const dispatch = useDispatch();
-  const { loading, imageByKeyword } = useSelector(dataImage);
+  const {
+    loading,
+    imageByKeyword: { results },
+  } = useSelector(dataImage);
 
   const { register, handleSubmit } = useForm();
+
   const onSubmit = (data) => {
     dispatch(imageDataByName(data));
   };
@@ -46,11 +51,12 @@ const ImageCom = () => {
               </Button>
             </Form>
           </Row>
-          <Row>
-            <Image
-              src={`https://source.unsplash.com/featured/?${imageByKeyword}`}
-              fluid
-            />
+          <Row className='mt-4 mb-4'>
+            {results
+              .map((image) => (
+                <Image key={image.id} src={image.urls.full} fluid />
+              ))
+              .slice(0, 1)}
           </Row>
         </>
       )}
