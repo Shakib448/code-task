@@ -9,10 +9,14 @@ const authSlice = createSlice({
     authLogin: (state, action) => {
       state.authData = action.payload;
     },
+    authLogOut: (state, action) => {
+      sessionStorage.removeItem("token");
+      state.authData = action.payload;
+    },
   },
 });
 
-export const { authLogin } = authSlice.actions;
+export const { authLogin, authLogOut } = authSlice.actions;
 
 export default authSlice.reducer;
 

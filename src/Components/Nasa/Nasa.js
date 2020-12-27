@@ -3,6 +3,7 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { dataNasa, nasaData } from "../../redux/slice/nasaSlice";
 import "./Nasa.sass";
+import Navigation from "../Navigation/Navigation";
 
 const Nasa = () => {
   const dispatch = useDispatch();
@@ -20,14 +21,17 @@ const Nasa = () => {
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <Row>
-          <Col variant='div' className='nasa__content'>
-            <h1>{title}</h1>
-            <h3>{date}</h3>
-            <Image src={url} className='nasa__img' fluid />
-            <h4>{explanation}</h4>
-          </Col>
-        </Row>
+        <>
+          <Navigation />
+          <Row>
+            <Col variant='div' className='nasa__content'>
+              <h1>{title}</h1>
+              <h3>{date}</h3>
+              <Image src={url} className='nasa__img' fluid />
+              <h4>{explanation}</h4>
+            </Col>
+          </Row>
+        </>
       )}
     </Container>
   );

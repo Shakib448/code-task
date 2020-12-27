@@ -34,7 +34,6 @@ const GoogleLogin = () => {
         })
       );
       storeAuthToken();
-      history.replace("/home");
     } catch (err) {
       console.error(err);
     }
@@ -46,7 +45,7 @@ const GoogleLogin = () => {
       .currentUser.getIdToken(true)
       .then(function (idToken) {
         sessionStorage.setItem("token", idToken);
-        history.replace(from);
+        history.replace("/home");
       })
       .catch(function (error) {
         console.log(error);
