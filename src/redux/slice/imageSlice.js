@@ -4,10 +4,10 @@ import axios from "axios";
 // Image fetch by random user name
 export const imageDataByName = createAsyncThunk(
   "image/imageContentByKeyword",
-  async (KEYWORD) => {
-    console.log(KEYWORD.keyword);
+  async ({ keyword }) => {
+    console.log(keyword);
     const { data } = await axios.get(
-      `https://source.unsplash.com/featured/?${KEYWORD.keyword}`
+      `https://source.unsplash.com/featured/?${keyword}, ${keyword}`
     );
     return data;
   }

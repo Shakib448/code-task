@@ -20,7 +20,7 @@ const ImageCom = () => {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    dispatch(imageDataByName({ ...data }));
+    dispatch(imageDataByName(data));
   };
 
   document.title = "Image";
@@ -47,7 +47,10 @@ const ImageCom = () => {
             </Form>
           </Row>
           <Row>
-            <Image />
+            <Image
+              src={`https://source.unsplash.com/featured/?${imageByKeyword}`}
+              fluid
+            />
           </Row>
         </>
       )}
