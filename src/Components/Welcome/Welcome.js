@@ -1,15 +1,18 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Container, Col } from "react-bootstrap";
+import "./Welcome.sass";
 import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
-    <div>
-      <h1>Welcome home</h1>
-      <Button as={Link} to='/google-login'>
-        Google Login
-      </Button>
-    </div>
+    <Container className='welcome'>
+      <Col component='div'>
+        <h1>Welcome Assignment Master</h1>
+        <Button variant='dark' as={Link} to='/google-login'>
+          Google Login
+        </Button>
+      </Col>
+    </Container>
   );
 };
 

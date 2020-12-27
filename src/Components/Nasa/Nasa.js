@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { dataNasa, nasaData } from "../../redux/slice/nasaSlice";
 import "./Nasa.sass";
 import Navigation from "../Navigation/Navigation";
+import Loader from "../Loader/Loader";
 
 const Nasa = () => {
   const dispatch = useDispatch();
@@ -16,10 +17,12 @@ const Nasa = () => {
     dispatch(nasaData());
   }, [dispatch]);
 
+  document.title = "Home";
+
   return (
     <Container fluid>
       {loading ? (
-        <h1>Loading...</h1>
+        <Loader />
       ) : (
         <>
           <Navigation />

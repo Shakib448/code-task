@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navigation.sass";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
-import { authLogOut, authSelector } from "../../redux/slice/authSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { authLogOut } from "../../redux/slice/authSlice";
+import { useDispatch } from "react-redux";
 
 const Navigation = () => {
   const [show, handleShow] = useState(false);
