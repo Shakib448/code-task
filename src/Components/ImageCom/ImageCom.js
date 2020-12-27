@@ -46,13 +46,16 @@ const ImageCom = () => {
           </Form>
         </Row>
 
-        <Row className='mt-4 mb-4'>
-          {results &&
+        <Row className='mt-4 mb-4 justify-content-center'>
+          {results ? (
             results
               .map((image) => (
                 <Image key={image.id} src={image.urls.full} fluid />
               ))
-              .slice(0, 1)}
+              .slice(0, 1)
+          ) : (
+            <h1>Find your image</h1>
+          )}
         </Row>
       </Container>
     </>

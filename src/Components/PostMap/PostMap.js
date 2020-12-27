@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const PostMap = ({ post: { title, body, postId } }) => {
+const PostMap = ({ post: { title, body, id } }) => {
   return (
     <Col className='my-3' md={4}>
       <Card style={{ textAlign: "center" }}>
@@ -10,11 +10,9 @@ const PostMap = ({ post: { title, body, postId } }) => {
           <Card.Title className='text-truncate'> {title} </Card.Title>
 
           <Card.Text>{body}</Card.Text>
-          <Link to={`/post-details/${postId}`}>
-            <Card.Link as={Button} variant='dark' href='#'>
-              View
-            </Card.Link>
-          </Link>
+          <Card.Link as={Link} to={`/post-details/${id}`}>
+            <Button variant='dark'>View</Button>
+          </Card.Link>
         </Card.Body>
       </Card>
     </Col>
