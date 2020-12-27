@@ -3,21 +3,18 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "./GoogleLogin.sass";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import firebaseConfig from "../../FirebaseConfig/Firebase.config";
 import { useDispatch } from "react-redux";
 import { authLogin } from "../../redux/slice/authSlice";
 
-firebase.initializeApp(firebaseConfig);
+if (firebase.app.length !== 0) firebase.initializeApp(firebaseConfig);
 
 const GoogleLogin = () => {
   const dispatch = useDispatch();
 
   //Location
-  let location = useLocation();
   let history = useHistory();
-
-  let { from } = location.state || { from: { pathname: "/" } };
 
   const providerGoogle = new firebase.auth.GoogleAuthProvider();
 

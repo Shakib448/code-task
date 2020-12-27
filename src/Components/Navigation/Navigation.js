@@ -53,38 +53,28 @@ const Navigation = () => {
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Nav className='ml-auto mr-auto font-weight-bold text-white '>
               <NavLink
+                to='/home'
                 className='mr-3 mb-3 mt-2 text-dark mainNav__hover'
-                activeClassName='mainNav__activeHover'
                 style={{ textDecoration: "none" }}
-                to='/'
               >
                 Home
               </NavLink>
 
               <NavLink
-                to='/'
-                // activeClassName="mainNav__activeHover"
+                to='/image'
                 className='mr-3 mb-3 mt-2 text-dark mainNav__hover'
                 style={{ textDecoration: "none" }}
               >
-                Donation
+                Image
               </NavLink>
               <NavLink
-                to='/'
-                // activeClassName="mainNav__activeHover"
+                to='/post'
                 className='mr-3 mb-3 mt-2 text-dark mainNav__hover'
                 style={{ textDecoration: "none" }}
               >
-                Events
+                Post
               </NavLink>
-              <NavLink
-                to='/'
-                // activeClassName="mainNav__activeHover"
-                className='mr-3 mb-3 mt-2 text-dark mainNav__hover'
-                style={{ textDecoration: "none" }}
-              >
-                Blog
-              </NavLink>
+
               {email ? (
                 <>
                   {" "}

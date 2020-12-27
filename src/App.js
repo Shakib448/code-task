@@ -2,15 +2,10 @@ import Nasa from "./Components/Nasa/Nasa";
 import Welcome from "./Components/Welcome/Welcome";
 import ImageCom from "./Components/ImageCom/ImageCom";
 import GoogleLogin from "./Components/GoogleLogin/GoogleLogin";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  withRouter,
-} from "react-router-dom";
-import { authSelector } from "./redux/slice/authSlice";
-import { useSelector } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import Post from "./Components/Post/Post";
 
 const App = () => {
   return (
@@ -23,6 +18,9 @@ const App = () => {
           </PrivateRoute>
           <PrivateRoute exact path='/image'>
             <ImageCom />
+          </PrivateRoute>
+          <PrivateRoute exact path='/post'>
+            <Post />
           </PrivateRoute>
           <Route exact path='/google-login' component={GoogleLogin} />
         </Switch>
