@@ -6,6 +6,7 @@ import {
   Form,
   Button,
   Image,
+  Col,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { dataImage, imageDataByName } from "../../redux/slice/imageSlice";
@@ -40,7 +41,7 @@ const ImageCom = () => {
               name='keyword'
               ref={register}
             />
-            <Button type='submit' variant='outline-success'>
+            <Button type='submit' variant='outline-dark'>
               Search
             </Button>
           </Form>
@@ -48,11 +49,11 @@ const ImageCom = () => {
 
         <Row className='mt-4 mb-4 justify-content-center'>
           {results ? (
-            results
-              .map((image) => (
-                <Image key={image.id} src={image.urls.full} fluid />
-              ))
-              .slice(0, 1)
+            results.map((image) => (
+              <Col className='my-4' key={image.id} md={4}>
+                <Image src={image.urls.full} fluid />
+              </Col>
+            ))
           ) : (
             <h1>Find your image</h1>
           )}
