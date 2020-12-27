@@ -4,6 +4,8 @@ import "./Welcome.sass";
 import { Link } from "react-router-dom";
 
 const Welcome = () => {
+  document.title = "Welcome";
+
   return (
     <Container className='welcome'>
       <Col component='div'>

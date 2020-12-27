@@ -53,6 +53,10 @@ const Navigation = () => {
       name: "Post",
       link: "/post",
     },
+    {
+      name: "Album",
+      link: "/album",
+    },
   ];
   return (
     <>

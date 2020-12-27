@@ -3,10 +3,10 @@ import Welcome from "./Components/Welcome/Welcome";
 import ImageCom from "./Components/ImageCom/ImageCom";
 import GoogleLogin from "./Components/GoogleLogin/GoogleLogin";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Post from "./Components/Post/Post";
 import PostDetails from "./Components/PostDetails/PostDetails";
+import Album from "./Components/Album/Album";
 
 const App = () => {
   return (
@@ -25,6 +25,9 @@ const App = () => {
           </PrivateRoute>
           <PrivateRoute exact path='/post-details/:id'>
             <PostDetails />
+          </PrivateRoute>
+          <PrivateRoute exact path='/album'>
+            <Album />
           </PrivateRoute>
           <Route exact path='/google-login' component={GoogleLogin} />
         </Switch>
