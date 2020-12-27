@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Post from "./Components/Post/Post";
+import PostDetails from "./Components/PostDetails/PostDetails";
 
 const App = () => {
   return (
@@ -21,6 +22,9 @@ const App = () => {
           </PrivateRoute>
           <PrivateRoute exact path='/post'>
             <Post />
+          </PrivateRoute>
+          <PrivateRoute exact path='/post-details/:id'>
+            <PostDetails />
           </PrivateRoute>
           <Route exact path='/google-login' component={GoogleLogin} />
         </Switch>
