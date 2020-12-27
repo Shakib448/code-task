@@ -47,11 +47,12 @@ const ImageCom = () => {
         </Row>
 
         <Row className='mt-4 mb-4'>
-          {results
-            .map((image) => (
-              <Image key={image.id} src={image.urls.full} fluid />
-            ))
-            .slice(0, 1)}
+          {results &&
+            results
+              .map((image) => (
+                <Image key={image.id} src={image.urls.full} fluid />
+              ))
+              .slice(0, 1)}
         </Row>
       </Container>
     </>
