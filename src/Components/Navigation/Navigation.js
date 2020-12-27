@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Navigation.sass";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+
 import { authLogOut, authSelector } from "../../redux/slice/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -9,13 +11,15 @@ const Navigation = () => {
   const [show, handleShow] = useState(false);
 
   const dispatch = useDispatch();
-  const { authData } = useSelector(authSelector);
 
   const history = useHistory();
 
   const handleBackHome = () => {
     history.push("/");
   };
+
+  const token = sessionStorage.getItem("token");
+  const { name, email } = jwt_decode(token);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,12 +85,10 @@ const Navigation = () => {
               >
                 Blog
               </NavLink>
-              {authData.email ? (
+              {email ? (
                 <>
                   {" "}
-                  <Nav.Link className='mr-3 text-dark li'>
-                    {authData.name}
-                  </Nav.Link>{" "}
+                  <Nav.Link className='mr-3 text-dark li'>{name}</Nav.Link>{" "}
                   <Button
                     className='btn btn-dark pl-5 pr-5 pt-2 pb-2 mainNav__btn'
                     onClick={() => {
