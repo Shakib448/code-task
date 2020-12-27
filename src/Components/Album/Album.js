@@ -21,11 +21,18 @@ const Album = () => {
     <>
       <Navigation />
       <Row style={{ marginTop: "150px" }} className='justify-content-center'>
-        <Button variant='dark' onClick={() => setShow(!show)}>
-          {show ? "See Albums" : "Hide Albums"}
-        </Button>
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            {" "}
+            <Button variant='dark' onClick={() => setShow(!show)}>
+              {show ? "Hide Albums" : "See Albums"}
+            </Button>
+          </>
+        )}
       </Row>
-      {!show && (
+      {show && (
         <Container className='my-4 '>
           {loading ? (
             <Loader />
