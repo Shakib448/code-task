@@ -1,0 +1,38 @@
+.mainNav__scroll
+    transition: 0.5s
+
+.mainNav
+    transition: 0.5s
+
+.mainNav__btn
+    background-color: #000
+    &:hover
+        background-color: transparent
+        color: #000
+
+.mainNav__hover
+    position: relative
+
+    &:after
+        background: none repeat scroll 0 0 transparent
+        bottom: 0
+        content: ""
+        display: block
+        height: 2px
+        left: 50%
+        position: absolute
+        background: #7ab259
+        transition: width 0.3s ease 0s, left 0.3s ease 0s
+        width: 0
+
+    &:hover:after
+        width: 100%
+        left: 0
+
+// .mainNav__activeHover:after
+//     width: 100%
+//     left: 0
+
+@media (max-width: 768px)
+.mainNav
+    background-color: #f8f9fa
