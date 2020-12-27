@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Container,
   Row,
@@ -6,7 +6,6 @@ import {
   Form,
   Button,
   Image,
-  Col,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { dataImage, imageDataByName } from "../../redux/slice/imageSlice";
