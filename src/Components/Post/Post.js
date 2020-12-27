@@ -1,10 +1,14 @@
 import React from "react";
+import { Container } from "react-bootstrap";
+import Navigation from "../Navigation/Navigation";
 
 const Post = () => {
+  document.title = "Post";
   return (
-    <div>
-      <h1>This is post page</h1>
-    </div>
+    <>
+      <Navigation />
+      <Container></Container>
+    </>
   );
 };
 
