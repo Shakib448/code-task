@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import jwt_decode from "jwt-decode";
+
+const tokenFromSession = sessionStorage.getItem("token")
+  ? jwt_decode(sessionStorage.getItem("token"))
+  : [];
 
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    authData: [],
+    authData: tokenFromSession,
   },
   reducers: {
     authLogin: (state, action) => {
